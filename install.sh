@@ -58,6 +58,7 @@ fc-cache -vf ~/.fonts
 jumbo install go
 jumbo install clang
 jumbo install nodejs
+jumbo install llvm
 mkdir -p ~/.config/fontconfig/conf.d
 rm -rf ~/.config/fontconfig/conf.d/10-powerline-symbols.conf
 cp ./fonts/10-powerline-symbols.conf ~/.config/fontconfig/conf.d
