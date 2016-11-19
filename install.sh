@@ -59,6 +59,13 @@ jumbo install go
 jumbo install clang
 jumbo install nodejs
 jumbo install llvm
+
+brew install go
+brew install clang
+brew install nodejs
+brew install npm
+brew install mono
+
 mkdir -p ~/.config/fontconfig/conf.d
 rm -rf ~/.config/fontconfig/conf.d/10-powerline-symbols.conf
 cp ./fonts/10-powerline-symbols.conf ~/.config/fontconfig/conf.d
