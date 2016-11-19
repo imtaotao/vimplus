@@ -11,12 +11,12 @@
 syntax enable
 syntax on
 set t_Co=256
-set cul 
-set shortmess=atI   
-autocmd InsertEnter * se cul    
-set ruler           
-set showcmd         
-set scrolloff=3     
+set cul
+set shortmess=atI
+autocmd InsertEnter * se cul
+set ruler
+set showcmd
+set scrolloff=3
 set laststatus=2
 set autoindent
 set smartindent
@@ -35,11 +35,11 @@ set langmenu=zh_CN.UTF-8
 set helplang=cn
 set cmdheight=2
 set autoread
-set completeopt=preview,menu 
+set completeopt=preview,menu
 set autowrite
-set magic                   
-set guioptions-=T           
-set guioptions-=m           
+set magic
+set guioptions-=T
+set guioptions-=m
 set nocompatible
 set noeb
 set confirm
@@ -68,24 +68,24 @@ filetype plugin on
 filetype indent on
 
 " create file settings
-autocmd BufNewFile *.cpp,*.cc,*.c,*.hpp,*.h,*.sh,*.py exec ":call SetTitle()" 
-func SetTitle() 
+autocmd BufNewFile *.cpp,*.cc,*.c,*.hpp,*.h,*.sh,*.py exec ":call SetTitle()"
+func SetTitle()
 	if expand("%:e") == 'sh'
-		call setline(1,"\#!/bin/bash") 
-		call append(line("."), "") 
+		call setline(1,"\#!/bin/bash")
+		call append(line("."), "")
     elseif expand("%:e") == 'py'
         call setline(1,"#!/usr/bin/env python")
         call append(line("."),"# coding=utf-8")
-	    call append(line(".")+1, "") 
+	    call append(line(".")+1, "")
     elseif expand("%:e") == 'cpp'
-		call setline(1,"#include <iostream>") 
-		call append(line("."), "") 
+		call setline(1,"#include <iostream>")
+		call append(line("."), "")
     elseif expand("%:e") == 'cc'
-		call setline(1,"#include <iostream>") 
-		call append(line("."), "") 
+		call setline(1,"#include <iostream>")
+		call append(line("."), "")
     elseif expand("%:e") == 'c'
-		call setline(1,"#include <stdio.h>") 
-		call append(line("."), "") 
+		call setline(1,"#include <stdio.h>")
+		call append(line("."), "")
     elseif expand("%:e") == 'h'
 		call setline(1, "#ifndef _".toupper(expand("%:r"))."_H")
 		call setline(2, "#define _".toupper(expand("%:r"))."_H")
@@ -95,12 +95,12 @@ func SetTitle()
 		call setline(2, "#define _".toupper(expand("%:r"))."_H")
 		call setline(3, "#endif")
 	endif
-endfunc 
+endfunc
 autocmd BufNewFile * normal G
 
 " Vundle
-set nocompatible              
-filetype off        
+set nocompatible
+filetype off
 
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -114,6 +114,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 Plugin 'Valloric/MatchTagAlways'
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'scrooloose/syntastic'
 Plugin 'docunext/closetag.vim'
 Plugin 'godlygeek/tabular'
 Plugin 'tpope/vim-fugitive'
@@ -136,8 +137,8 @@ Plugin 'will133/vim-dirdiff'
 Plugin 'haya14busa/incsearch.vim'
 Plugin 'mhinz/vim-startify'
 
-call vundle#end()            
-filetype plugin indent on    
+call vundle#end()
+filetype plugin indent on
 
 " load vim default plugin
 runtime macros/matchit.vim
@@ -165,13 +166,13 @@ let g:doxygen_enhanced_color=1
 let g:DoxygenToolkit_commentType="Qt"
 
 " YCM
-let g:ycm_confirm_extra_conf = 0 
+let g:ycm_confirm_extra_conf = 0
 let g:ycm_error_symbol = '>>'
 let g:ycm_warning_symbol = '>*'
-let g:ycm_seed_identifiers_with_syntax = 1 
-let g:ycm_complete_in_comments = 1 
-let g:ycm_complete_in_strings = 1 
-"let g:ycm_cache_omnifunc = 0 
+let g:ycm_seed_identifiers_with_syntax = 1
+let g:ycm_complete_in_comments = 1
+let g:ycm_complete_in_strings = 1
+"let g:ycm_cache_omnifunc = 0
 let mapleader = ","
 nnoremap <leader>u :YcmCompleter GoToDeclaration<CR>
 nnoremap <leader>i :YcmCompleter GoToDefinition<CR>
@@ -224,6 +225,16 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 
 " vim-devicons
 set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Nerd\ Font\ Complete\ 12
+
+" synatastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 
 " incsearch.vim
 map /  <Plug>(incsearch-forward)
