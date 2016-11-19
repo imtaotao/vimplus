@@ -55,6 +55,9 @@ cp ./fonts/PowerlineSymbols.otf ~/.fonts
 cp ./fonts/Droid\ Sans\ Mono\ for\ Powerline\ Nerd\ Font\ Complete.otf ~/.fonts
 fc-cache -vf ~/.fonts
 
+jumbo install go
+jumbo install clang
+jumbo install nodejs
 mkdir -p ~/.config/fontconfig/conf.d
 rm -rf ~/.config/fontconfig/conf.d/10-powerline-symbols.conf
 cp ./fonts/10-powerline-symbols.conf ~/.config/fontconfig/conf.d
