@@ -36,11 +36,11 @@ then
     yum install -y vim ctags automake gcc gcc-c++ kernel-devel cmake python-devel python3-devel git
 fi
 
-rm -rf ~/.vimrc
-rm -rf ~/.ycm_extra_conf.py
+#rm -rf ~/.vimrc
+#rm -rf ~/.ycm_extra_conf.py
 
-cp .vimrc ~
-cp .ycm_extra_conf.py ~
+cp -n .vimrc ~
+cp -n .ycm_extra_conf.py ~
 
 mkdir ~/.vim
 rm -rf ~/.vim/plugin
@@ -64,7 +64,8 @@ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 vim -c "PluginInstall" -c "q" -c "q"
 
 cd ~/.vim/bundle/YouCompleteMe
-./install.py --clang-completer
+#./install.py --clang-completer
+./install.py --all
 
 echo "Done!"
 

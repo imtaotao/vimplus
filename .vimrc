@@ -31,6 +31,7 @@ set number
 set history=1000
 set hlsearch
 set incsearch
+set ff=unix
 set langmenu=zh_CN.UTF-8
 set helplang=cn
 set cmdheight=2
@@ -177,13 +178,15 @@ let mapleader = ","
 nnoremap <leader>u :YcmCompleter GoToDeclaration<CR>
 nnoremap <leader>i :YcmCompleter GoToDefinition<CR>
 nnoremap <leader>o :YcmCompleter GoToInclude<CR>
+nnoremap <leader>gg :YcmCompleter GoToDefinitionElseDeclaration<CR>
 nmap <F5> :YcmDiags<CR>
 
 " a.vim: .h -> .cpp or .cpp -> .h
 nnoremap <silent> <F2> :A<CR>
 
 " tagbar
-let g:tagbar_ctags_bin = '/usr/bin/ctags'
+" 默认使用路径中
+" let g:tagbar_ctags_bin = '/usr/bin/ctags'
 let g:tagbar_width = 30
 map <F4> :TagbarToggle<CR>
 imap <F4> <ESC> :TagbarToggle<CR>
@@ -191,8 +194,8 @@ imap <F4> <ESC> :TagbarToggle<CR>
 " colorscheme
 set background=dark
 let g:solarized_termcolors=256
-colorscheme solarized
-"colorscheme monokai
+"colorscheme solarized
+colorscheme monokai
 
 " cpp_class_scope_highlight
 let g:cpp_class_scope_highlight = 1
