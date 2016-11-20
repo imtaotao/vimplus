@@ -3,8 +3,8 @@
 #rm -rf ~/.vimrc
 #rm -rf ~/.ycm_extra_conf.py
 
-cp -u .vimrc ~
-cp -u .ycm_extra_conf.py ~
+cp -n .vimrc ~
+cp -n .ycm_extra_conf.py ~
 
 mkdir ~/.vim
 rm -rf ~/.vim/plugin
