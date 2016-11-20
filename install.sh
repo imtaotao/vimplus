@@ -72,9 +72,7 @@ vim -c "PluginInstall" -c "q" -c "q"
 cd ~/.vim/bundle/YouCompleteMe
 export LD_LIBRARY_PATH=~/.jumbo/lib/llvm/:~/.jumbo/lib/:~.jumbo/opt/gcc5/lib64/:$LD_LIBRARY_PATH
 export PATH=~/.jumbo/opt/gcc5/bin:$PATH
-./install.py --clang-completer
-./install.py --gocode-completer
-./install.py --tern-completer
+./install.py --clang-completer --gocode-completer --tern-completer
 
 echo "Done!"
 
