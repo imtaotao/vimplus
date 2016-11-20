@@ -55,16 +55,11 @@ cp ./fonts/PowerlineSymbols.otf ~/.fonts
 cp ./fonts/Droid\ Sans\ Mono\ for\ Powerline\ Nerd\ Font\ Complete.otf ~/.fonts
 fc-cache -vf ~/.fonts
 
+jumbo install vim
 jumbo install go
 jumbo install clang
 jumbo install nodejs
 jumbo install llvm
-
-brew install go
-brew install clang
-brew install nodejs
-brew install npm
-brew install mono
 
 mkdir -p ~/.config/fontconfig/conf.d
 rm -rf ~/.config/fontconfig/conf.d/10-powerline-symbols.conf
@@ -75,8 +70,9 @@ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 vim -c "PluginInstall" -c "q" -c "q"
 
 cd ~/.vim/bundle/YouCompleteMe
-#./install.py --clang-completer
-./install.py --all
+export LD_LIBRARY_PATH=~/.jumbo/lib/llvm/:~/.jumbo/lib/:~.jumbo/opt/gcc5/lib64/:$LD_LIBRARY_PATH
+export PATH=~/.jumbo/opt/gcc5/bin:$PATH
+./install.py --clang-completer
 
 echo "Done!"
 
